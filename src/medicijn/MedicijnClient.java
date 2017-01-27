@@ -24,13 +24,17 @@ public class MedicijnClient {
     		
     		
     		JSONObject json2 = new JSONObject();
-        	json.put("Naam", "dafalgan2");
-    		json.put("Vervaldatum", "01-01-2018");
-    		json.put("Producent", "pro2");
-    		json.put("Hoeveelheid", "100");
+        	json2.put("Naam", "dafalgan2");
+    		json2.put("Vervaldatum", "01-01-2018");
+    		json2.put("Producent", "pro2");
+    		json2.put("Hoeveelheid", "100");
 
     		resource.post(json2.toString());
     		System.out.println(resource.getResponseEntity().getText());
+    		
+    		
+    		ClientResource resource2 = new ClientResource("http://127.0.0.1:8184/medicijn/medicijn/");
+			System.out.println(resource2.get());
         	
         }
         catch (Exception e) {

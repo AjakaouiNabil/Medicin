@@ -1,4 +1,4 @@
-<%@page import="quotes.QuotesFile"%>
+<%@page import="medicijn.MedicijnFile"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -8,27 +8,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Reultaat</title>
+<title>Reultaat van medicijnen</title>
 </head>
 <body>
 	<%
 		String search = request.getParameter("search");
 		if (search != null){
 	%>
-		<h1>Gevonden quotes voor "<%= search %>":</h1>
+		<h1>medicijn met als naam:  "<%= search %>":</h1>
 	<%
 		
-		ArrayList<String> quotes = QuotesFile.getQuotes(search); 		
+		ArrayList<String> medicijnen = MedicijnFile.getMedicijn(search); 		
 	%>
 	<ul>
-	<% for (String q : quotes) {%>
-		<li><%=q %></li>
+	<% for (String m : medicijnen) {%>
+		<li><%=m %></li>
 	<%} %>
 	</ul>
 	<%
 		
 		}
 	%>
-	<a href="quotes.jsp">Back to Search</a>
+	<a href="med.jsp">Back to Search</a>
 </body>
 </html>
